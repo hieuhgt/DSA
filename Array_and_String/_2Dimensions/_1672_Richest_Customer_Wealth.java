@@ -4,16 +4,20 @@ public class _1672_Richest_Customer_Wealth {
   public static int maximumWealth(int[][] a) {
     int numOfCustomers = a.length;
     int numOfBanks = a[0].length;
-    int[] sumOfWealth = new int[numOfCustomers];
+    int max = 0;
+    // int[] sumOfWealth = new int[numOfCustomers];
     for (int i = 0; i < numOfCustomers; i++) {
       int sum = 0;
       for (int j = 0; j < numOfBanks; j++) {
         sum += a[i][j];
       }
-      sumOfWealth[i] = sum;
+      // sumOfWealth[i] = sum;
+      if (sum > max) {
+        max = sum;
+      }
     }
 
-    return max(sumOfWealth);
+    return max;
   }
 
   private static int max(int[] sumOfWealth) {
