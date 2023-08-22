@@ -31,7 +31,9 @@ public class _27_Remove_Element {
 
   public static void main(String[] args) {
     // {3, 2, 3, 3}
-    int[] arr = { 3, 2, 2, 3, 4, 2 };
-    System.out.println(removeElement2(arr, 2));
+    // i = 1 => j = 4; n = 6 => j < 5
+    // {3, 2, 3, 4, 2, 2}
+    int[] arr = { 3, 2, 2, 3, 4 };
+    System.out.println(removeElement(arr, 2));
   }
 }
