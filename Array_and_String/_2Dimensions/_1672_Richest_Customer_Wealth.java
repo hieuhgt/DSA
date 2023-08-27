@@ -16,7 +16,6 @@ public class _1672_Richest_Customer_Wealth {
         max = sum;
       }
     }
-
     return max;
   }
 
