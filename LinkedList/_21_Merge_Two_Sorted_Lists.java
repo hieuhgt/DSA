@@ -1,6 +1,6 @@
 package LinkedList;
 
-public class _203_Remove_Linked_List_Elements {
+public class _21_Merge_Two_Sorted_Lists {
   public static class ListNode {
     int val;
     ListNode next;
@@ -8,15 +8,14 @@ public class _203_Remove_Linked_List_Elements {
     ListNode() {
     }
 
-    public ListNode(int val, ListNode next) {
+    ListNode(int val) {
+      this.val = val;
+    }
+
+    ListNode(int val, ListNode next) {
       this.val = val;
       this.next = next;
     }
-
-    public ListNode(int val) {
-      this.val = val;
-    }
-
   }
 
   public static void printLinkedList(ListNode head) {
@@ -36,42 +35,39 @@ public class _203_Remove_Linked_List_Elements {
     }
   }
 
-  public static ListNode removeElements(ListNode head, int val) {
-    if (head == null) {
-      return null;
-    }
+  public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
     ListNode dummy = new ListNode();
-    dummy.next = head;
-    ListNode cur = head;
-    ListNode prev = dummy;
-    while (cur != null) {
-      if (cur.val == val) {
-        prev.next = cur.next;
+    ListNode cur = dummy;
+
+    while (list1 != null && list2 != null) {
+      if (list1.val <= list2.val) {
+        cur.next = list1;
+        list1 = list1.next;
       } else {
-        prev = cur;
+        cur.next = list2;
+        list2 = list2.next;
       }
       cur = cur.next;
     }
+    cur.next = list1 == null ? list2 : list1;
     return dummy.next;
   }
 
   public static void main(String[] args) {
     ListNode n1 = new ListNode(1);
-    ListNode n2 = new ListNode(1);
-    ListNode n3 = new ListNode(7);
-    ListNode n4 = new ListNode(7);
-    ListNode n5 = new ListNode(4);
-    ListNode n6 = new ListNode(5);
-    ListNode n7 = new ListNode(6);
+    ListNode n2 = new ListNode(2);
+    ListNode n3 = new ListNode(4);
+    ListNode n4 = new ListNode(1);
+    ListNode n5 = new ListNode(3);
+    ListNode n6 = new ListNode(4);
 
     n1.next = n2;
     n2.next = n3;
-    // n3.next = n4;
-    // n4.next = n5;
-    // n5.next = n6;
-    // n6.next = n7;
 
-    n1 = removeElements(n1, 1);
-    printLinkedList(n1);
+    n4.next = n5;
+    n5.next = n6;
+
+    ListNode newNode = mergeTwoLists(n1, n4);
+    printLinkedList(newNode);
   }
 }

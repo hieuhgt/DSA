@@ -58,6 +58,24 @@ public class _206_Reverse_Linked_List {
     return head;
   }
 
+  public static ListNode reverseListRecursion(ListNode head) {
+    // 0 node
+    if (head == null) {
+      return null;
+    }
+    // 1 node
+    ListNode nextNode = head.next;
+    if (nextNode == null) {
+      return head;
+    }
+
+    // De quy >= 2 node
+    ListNode newHead = reverseListRecursion(nextNode);
+    nextNode.next = head;
+    head.next = null;
+    return newHead;
+  }
+
   public static void main(String[] args) {
     ListNode n1 = new ListNode(1);
     ListNode n2 = new ListNode(2);
@@ -70,7 +88,7 @@ public class _206_Reverse_Linked_List {
     n3.next = n4;
     n4.next = n5;
 
-    n1 = reverseList(n1);
+    n1 = reverseListRecursion(n1);
     printLinkedList(n1);
   }
 }
