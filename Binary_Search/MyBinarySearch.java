@@ -1,5 +1,7 @@
 package Binary_Search;
 
+import java.util.Arrays;
+
 public class MyBinarySearch {
   public static int binarySearch(int[] a, int key) {
     int n = a.length;
@@ -54,7 +56,9 @@ public class MyBinarySearch {
     // int[] arr = { 1, 4, 9, 12, 19, 25, 31, 46, 50, 57, 72 };
     // System.out.println(binarySearchRecursion(arr, 31));
 
-    int[] arr1 = { 5, 20, 66, 1314 };
-    System.out.println(maximumCount(arr1));
+    int[] arr1 = { 1, 4, 9, 12, 19, 25, 31, 46, 50, 57, 72 };
+    binarySearch(arr1, 31);
+    System.out.println(Arrays.toString(arr1));
+
   }
 }
