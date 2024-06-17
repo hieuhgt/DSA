@@ -24,7 +24,7 @@
 
 class Car {
   public void drive() {
-    System.out.println("day la car");
+    System.out.println("day la car test");
   }
 }
 
